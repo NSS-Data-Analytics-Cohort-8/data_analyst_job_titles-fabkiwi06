@@ -70,15 +70,18 @@ ORDER BY star_rating DESC;
 -- 11.	Find all the job titles that contain the word ‘Analyst’. How many different job titles are there? 
 SELECT COUNT(title)
 FROM data_analyst_jobs
-WHERE title LIKE '%_nalyst%';
--- 1640
+WHERE title LIKE '%_nalyst%'
+	OR title LIKE '%_NALYST%'
+-- 1669
 
 -- 12.	How many different job titles do not contain either the word ‘Analyst’ or the word ‘Analytics’? What word do these positions have in common?
 SELECT title
 FROM data_analyst_jobs
 WHERE title NOT LIKE '%_nalyst%'
-	AND title NOT LIKE '%_nalytics%';
---34 by this code, but it's not counting any all caps spellings. There are 4 that are not caps. The non-analytics listings use words like "Data Consultant" or "Data Specialist" or specifically mention Tableau.
+	AND title NOT LIKE '%_nalytics%'
+	AND title NOT LIKE '%_NALYST%'
+	AND title NOT LIKE '%_NALYTICS%'
+--4 The non-analytics listings use words like "Data Consultant" or "Data Specialist" or specifically mention Tableau.
 
 
 
