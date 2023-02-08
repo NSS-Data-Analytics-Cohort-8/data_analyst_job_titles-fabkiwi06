@@ -17,16 +17,16 @@ LIMIT 10;
 
 -- 3.	How many postings are in Tennessee? How many are there in either Tennessee or Kentucky?
 SELECT location, COUNT(location)
-FROM data_analyst_jobs
+FROM data_analyst_jobs 
 GROUP BY location;
 -- There are 21 postings in TN, 6 postings in KY
 
 -- 4.	How many postings in Tennessee have a star rating above 4?
-SELECT star_rating
+SELECT COUNT(star_rating)
 FROM data_analyst_jobs
 WHERE location='TN'
-GROUP BY star_rating
--- 4 if you are including the 4 star rating.
+AND star_rating>4
+-- 3
 
 -- 5.	How many postings in the dataset have a review count between 500 and 1000?
 SELECT COUNT(review_count)
