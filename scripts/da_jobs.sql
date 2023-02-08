@@ -60,6 +60,12 @@ ORDER BY company;
 -- 41
 
 -- 10.	Add the code to order the query in #9 from highest to lowest average star rating. Which company with more than 5000 reviews across all locations in the dataset has the highest star rating? What is that rating?
+SELECT company, AVG(star_rating)
+FROM data_analyst_jobs
+WHERE review_count > 5000
+GROUP BY star_rating, company
+ORDER BY star_rating DESC;
+-- American Express with a 4.199 rating
 
 -- 11.	Find all the job titles that contain the word ‘Analyst’. How many different job titles are there? 
 
