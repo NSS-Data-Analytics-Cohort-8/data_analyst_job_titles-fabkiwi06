@@ -22,6 +22,11 @@ GROUP BY location;
 -- There are 21 postings in TN, 6 postings in KY
 
 -- 4.	How many postings in Tennessee have a star rating above 4?
+SELECT star_rating
+FROM data_analyst_jobs
+WHERE location='TN'
+GROUP BY star_rating
+-- 4 if you are including the 4 star rating.
 
 -- 5.	How many postings in the dataset have a review count between 500 and 1000?
 
