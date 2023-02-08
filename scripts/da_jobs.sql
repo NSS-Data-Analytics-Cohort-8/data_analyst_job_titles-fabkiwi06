@@ -16,6 +16,10 @@ LIMIT 10;
 -- ExxonMobil
 
 -- 3.	How many postings are in Tennessee? How many are there in either Tennessee or Kentucky?
+SELECT location, COUNT(location)
+FROM data_analyst_jobs
+GROUP BY location;
+-- There are 21 postings in TN, 6 postings in KY
 
 -- 4.	How many postings in Tennessee have a star rating above 4?
 
