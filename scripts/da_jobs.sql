@@ -121,3 +121,18 @@ ORDER BY jobs_available DESC;
 -- Computers & Electronics - 1 jobs
 -- Internet & Software - 1 jobs
 
+-- Extra Work
+-- 1. For each company, give the company name and the difference between its star rating and the national average star rating.
+SELECT AVG(star_rating)
+FROM data_analyst_jobs
+-- Average Star Rating: 3.7919270704752604
+SELECT title, (star_rating -3.7919270704752604) AS star_difference
+FROM data_analyst_jobs
+WHERE star_rating IS NOT NULL 
+GROUP BY title, star_rating
+ORDER BY star_difference DESC;
+
+-- 2. Using a correlated subquery: For each company, give the company name, its domain, its star rating, and its domain average star rating
+
+
+-- 3. Repeat question 2 using a CTE instead of a correlated subquery
