@@ -126,15 +126,22 @@ ORDER BY jobs_available DESC;
 SELECT AVG(star_rating)
 FROM data_analyst_jobs
 -- Average Star Rating: 3.7919270704752604
-SELECT company, (star_rating -3.7919270704752604) AS star_difference
+SELECT company, (star_rating - 3.7919270704752604) AS star_difference
 FROM data_analyst_jobs
 WHERE star_rating IS NOT NULL 
 GROUP BY company, star_rating
 ORDER BY star_difference DESC;
 
+
 -- 2. Using a correlated subquery: For each company, give the company name, its domain, its star rating, and its domain average star rating
-SELECT title, domain, star_rating 
+SELECT company, domain, star_rating, 
 FROM data_analyst_jobs
 WHERE
+	(
+	SELECT AVG(star_rating) AS domain_star
+	 FROM data_analyst_jobs
+	 GROUP BY domain
+	)
+GROUP BY company, domain
 
 -- 3. Repeat question 2 using a CTE instead of a correlated subquery
